@@ -1,7 +1,7 @@
 import request from 'supertest';
 import express from 'express';
-import apiRoutes from '../../routes/api';
-import { MCPHandler } from '../../mcp/handler';
+import apiRoutes from '../src/routes/api';
+import { MCPHandler } from '../src/mcp/handler';
 
 // Create test app without starting server
 const app = express();

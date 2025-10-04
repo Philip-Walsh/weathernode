@@ -2,12 +2,12 @@ import request from 'supertest';
 import express from 'express';
 
 // Mock the WeatherService before importing the routes
-jest.mock('../src/services/weather.js');
-import { WeatherService } from '../src/services/weather.js';
+jest.mock('../src/services/weather');
+import { WeatherService } from '../src/services/weather';
 const MockedWeatherService = WeatherService as jest.MockedClass<typeof WeatherService>;
 
 // Import routes after mocking
-import apiRoutes, { weatherService } from '../src/routes/api.js';
+import apiRoutes, { weatherService } from '../src/routes/api';
 
 describe('API Routes', () => {
     let app: express.Application;

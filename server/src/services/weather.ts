@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { WeatherData, WeatherForecast, WeatherAPIResponse, WeatherAPIForecastResponse } from '../domain';
+import { logger } from '../lib/logger.js';
 
 /**
  * Weather service that provides weather data from WeatherAPI.com
@@ -55,7 +56,11 @@ export class WeatherService {
                 wind_speed: data.current.wind_kph
             };
         } catch (error) {
-            console.error('Error fetching current weather:', error);
+            logger.error('Error fetching current weather', {
+                location,
+                error: error instanceof Error ? error.message : 'Unknown error',
+                stack: error instanceof Error ? error.stack : undefined
+            });
             return null;
         }
     }
@@ -103,7 +108,12 @@ export class WeatherService {
                 }))
             };
         } catch (error) {
-            console.error('Error fetching weather forecast:', error);
+            logger.error('Error fetching weather forecast', {
+                location,
+                days,
+                error: error instanceof Error ? error.message : 'Unknown error',
+                stack: error instanceof Error ? error.stack : undefined
+            });
             return null;
         }
     }

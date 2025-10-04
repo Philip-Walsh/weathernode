@@ -6,6 +6,7 @@ import {
     Tool,
 } from '@modelcontextprotocol/sdk/types.js';
 import { WeatherService } from '../services/index.js';
+import { logger } from '../lib/logger.js';
 
 /**
  * MCP Server implementation for weather data using stdio transport
@@ -30,7 +31,7 @@ export class WeatherMCPServer {
      */
     private setupToolHandlers() {
         // List available tools
-        this.server.setRequestHandler(ListToolsRequestSchema, async (request) => {
+        this.server.setRequestHandler(ListToolsRequestSchema, async (_request) => {
             return {
                 tools: [
                     {
@@ -147,6 +148,6 @@ export class WeatherMCPServer {
     async run() {
         const transport = new StdioServerTransport();
         await this.server.connect(transport);
-        console.error('Weather MCP server running on stdio');
+        logger.info('Weather MCP server running on stdio');
     }
 }

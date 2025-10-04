@@ -12,6 +12,7 @@ import {
     securityHeaders,
     requestLogger
 } from './middleware/index.js';
+import { logger } from './lib/logger.js';
 
 dotenv.config();
 
@@ -74,7 +75,13 @@ app.get('/', (req, res) => {
 });
 
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-    console.error('Unhandled error:', err);
+    logger.error('Unhandled error', {
+        error: err.message,
+        stack: err.stack,
+        url: req.originalUrl,
+        method: req.method,
+        requestId: req.id
+    });
     res.status(500).json({
         error: 'Internal server error',
         message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong'
@@ -89,10 +96,14 @@ app.use('*', (req: express.Request, res: express.Response) => {
 });
 
 app.listen(port, () => {
-    console.log(`Weathernode Server running on port ${port}`);
-    console.log(`REST API: http://localhost:${port}/api`);
-    console.log(`MCP endpoint: http://localhost:${port}/mcp`);
-    console.log(`Health check: http://localhost:${port}/api/health`);
+    logger.info('Weathernode Server started', {
+        port,
+        endpoints: {
+            rest: `http://localhost:${port}/api`,
+            mcp: `http://localhost:${port}/mcp`,
+            health: `http://localhost:${port}/api/health`
+        }
+    });
 });
 
 export default app;

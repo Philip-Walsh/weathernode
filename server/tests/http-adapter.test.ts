@@ -5,7 +5,7 @@ import {
     validateMCPRequest,
     createRateLimit,
     securityHeaders
-} from '../src/middleware/index.js';
+} from '../src/middleware/index';
 
 // Mock the MCP SDK
 jest.mock('@modelcontextprotocol/sdk/server/index.js', () => ({
@@ -116,7 +116,7 @@ jest.mock('@modelcontextprotocol/sdk/types.js', () => ({
     Tool: {}
 }));
 
-import { WeatherMCPHTTPAdapter } from '../http-adapter';
+import { WeatherMCPHTTPAdapter } from '../src/mcp/http-adapter';
 
 const app = express();
 app.use(express.json());

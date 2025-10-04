@@ -1,8 +1,8 @@
-import { MCPHandler } from '../src/mcp/handler.js';
-import { WeatherService } from '../src/services/weather.js';
+import { MCPHandler } from '../src/mcp/handler';
+import { WeatherService } from '../src/services/weather';
 
 // Mock the WeatherService
-jest.mock('../src/services/weather.js');
+jest.mock('../src/services/weather');
 const MockedWeatherService = WeatherService as jest.MockedClass<typeof WeatherService>;
 
 describe('MCPHandler', () => {

@@ -30,7 +30,7 @@ export class WeatherMCPHTTPAdapter {
      */
     private setupToolHandlers() {
         // List available tools
-        this.server.setRequestHandler(ListToolsRequestSchema, async (request) => {
+        this.server.setRequestHandler(ListToolsRequestSchema, async (_request) => {
             return {
                 tools: [
                     {

@@ -14,6 +14,7 @@ A production-ready weather service providing live weather data via REST API and 
 ## Quick Start
 
 ### Prerequisites
+
 - Node.js 18+
 - [WeatherAPI.com](https://www.weatherapi.com/) API key (free tier: 1M calls/month)
 
@@ -40,6 +41,7 @@ Server runs on: `http://localhost:3000`
 ## API Endpoints
 
 ### REST API
+
 ```bash
 # Current weather
 GET /api/weather?city=London
@@ -55,6 +57,7 @@ GET /api/health
 ```
 
 ### MCP Protocol
+
 ```bash
 # List available tools
 POST /mcp
@@ -91,6 +94,7 @@ npm run lint         # Lint code
 ## Deployment
 
 ### Docker
+
 ```bash
 # Build image
 docker build -t weathernode .
@@ -102,6 +106,7 @@ docker run -p 3000:3000 \
 ```
 
 ### Kubernetes
+
 ```bash
 # Create secret
 kubectl create secret generic weather-api-key \
@@ -114,9 +119,9 @@ helm install weather-service ./helm/weather-service \
 
 ## Documentation
 
-- [API Reference](docs/apiReference.md) - Complete API documentation
-- [Deployment Guide](docs/deploymentGuide.md) - Production deployment
-- [WeatherAPI Setup](docs/weatherApiSetup.md) - Weather data source setup
+- [API Reference](docs/api-reference.md) - Complete API documentation
+- [Deployment Guide](docs/deployment-guide.md) - Production deployment
+- [WeatherAPI Setup](docs/weather-api-setup.md) - Weather data source setup
 
 ## Environment Variables
 

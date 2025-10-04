@@ -255,3 +255,52 @@ kubectl logs -f weather-service-xxx
 # Get logs from all pods
 kubectl logs -l app=weather-service --tail=100
 ```
+
+## Logging
+
+### Log Levels
+
+- `error`: Error conditions
+- `warn`: Warning conditions
+- `info`: Informational messages (default)
+- `debug`: Debug-level messages
+
+### Log Formats
+
+- **Development**: Colorized, human-readable format with timestamps
+- **Production**: JSON format with timestamps and structured metadata
+
+### Environment Variables
+
+```bash
+LOG_LEVEL=info              # Set log level (error, warn, info, debug)
+LOG_TO_FILE=true            # Enable file logging
+LOG_FILE=/app/logs/app.log  # Log file path
+```
+
+### Monitoring Logs
+
+```bash
+# Get recent logs via API
+curl http://localhost:3000/monitoring/logs?limit=50
+
+# Clear logs
+curl -X DELETE http://localhost:3000/monitoring/logs
+
+# Get log statistics
+curl http://localhost:3000/monitoring/stats
+```
+
+### Log Structure
+
+```json
+{
+  "timestamp": "2025-10-04T06:55:02.645Z",
+  "level": "info",
+  "message": "request start",
+  "requestId": "uuid-here",
+  "method": "GET",
+  "url": "/api/weather",
+  "ip": "127.0.0.1"
+}
+```
