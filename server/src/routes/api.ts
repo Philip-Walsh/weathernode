@@ -72,7 +72,7 @@ router.get('/health', (req: Request, res: Response) => {
     const health = {
         status: 'healthy',
         timestamp: new Date().toISOString(),
-        service: 'weather-mcp-db',
+        service: 'weathernode',
         version: '1.0.0',
         uptime: process.uptime(),
         memory: process.memoryUsage(),
@@ -86,7 +86,7 @@ router.get('/health/detailed', (req: Request, res: Response) => {
     const health = {
         status: 'healthy',
         timestamp: new Date().toISOString(),
-        service: 'weather-mcp-db',
+        service: 'weathernode',
         version: '1.0.0',
         uptime: process.uptime(),
         memory: process.memoryUsage(),

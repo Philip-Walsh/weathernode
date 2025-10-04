@@ -52,7 +52,7 @@ app.post('/mcp', mcpRateLimit, validateMCPRequest, (req, res) => {
 
 app.get('/', (req, res) => {
     res.json({
-        service: 'weather-mcp-db',
+        service: 'weathernode',
         version: '1.0.0',
         endpoints: {
             rest: '/api',
@@ -89,10 +89,10 @@ app.use('*', (req: express.Request, res: express.Response) => {
 });
 
 app.listen(port, () => {
-    console.log(`🌤️  Weather MCP Server running on port ${port}`);
-    console.log(`📡 REST API: http://localhost:${port}/api`);
-    console.log(`🤖 MCP endpoint: http://localhost:${port}/mcp`);
-    console.log(`❤️  Health check: http://localhost:${port}/api/health`);
+    console.log(`Weathernode Server running on port ${port}`);
+    console.log(`REST API: http://localhost:${port}/api`);
+    console.log(`MCP endpoint: http://localhost:${port}/mcp`);
+    console.log(`Health check: http://localhost:${port}/api/health`);
 });
 
 export default app;

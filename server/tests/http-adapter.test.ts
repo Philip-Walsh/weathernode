@@ -5,7 +5,7 @@ import {
     validateMCPRequest,
     createRateLimit,
     securityHeaders
-} from '../../middleware';
+} from '../src/middleware/index.js';
 
 // Mock the MCP SDK
 jest.mock('@modelcontextprotocol/sdk/server/index.js', () => ({

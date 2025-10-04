@@ -28,7 +28,7 @@ export class MCPHandler {
                         protocolVersion: "2024-11-05",
                         capabilities: { tools: {} },
                         serverInfo: {
-                            name: "weather-server",
+                            name: "weathernode-service",
                             version: "1.0.0"
                         }
                     }

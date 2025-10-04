@@ -15,7 +15,7 @@ app.post('/mcp', (req, res) => {
 
 app.get('/', (req, res) => {
     res.json({
-        service: 'weather-mcp-db',
+        service: 'weathernode',
         version: '1.0.0',
         endpoints: {
             rest: '/api',

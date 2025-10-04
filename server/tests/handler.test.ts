@@ -1,8 +1,8 @@
-import { MCPHandler } from '../handler';
-import { WeatherService } from '../../services/weather';
+import { MCPHandler } from '../src/mcp/handler.js';
+import { WeatherService } from '../src/services/weather.js';
 
 // Mock the WeatherService
-jest.mock('../../services/weather');
+jest.mock('../src/services/weather.js');
 const MockedWeatherService = WeatherService as jest.MockedClass<typeof WeatherService>;
 
 describe('MCPHandler', () => {
@@ -57,7 +57,7 @@ describe('MCPHandler', () => {
                     protocolVersion: '2024-11-05',
                     capabilities: { tools: {} },
                     serverInfo: {
-                        name: 'weather-server',
+                        name: 'weathernode-service',
                         version: '1.0.0'
                     }
                 }

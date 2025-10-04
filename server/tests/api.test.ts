@@ -2,12 +2,12 @@ import request from 'supertest';
 import express from 'express';
 
 // Mock the WeatherService before importing the routes
-jest.mock('../../services/weather');
-import { WeatherService } from '../../services/weather';
+jest.mock('../src/services/weather.js');
+import { WeatherService } from '../src/services/weather.js';
 const MockedWeatherService = WeatherService as jest.MockedClass<typeof WeatherService>;
 
 // Import routes after mocking
-import apiRoutes, { weatherService } from '../api';
+import apiRoutes, { weatherService } from '../src/routes/api.js';
 
 describe('API Routes', () => {
     let app: express.Application;
@@ -210,7 +210,7 @@ describe('API Routes', () => {
             expect(response.body).toEqual({
                 status: 'healthy',
                 timestamp: expect.any(String),
-                service: 'weather-mcp-db',
+                service: 'weathernode',
                 version: '1.0.0',
                 uptime: expect.any(Number),
                 memory: expect.any(Object),

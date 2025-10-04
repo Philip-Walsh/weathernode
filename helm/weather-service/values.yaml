@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: weather-mcp-db
+  repository: weathernode
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -53,4 +53,3 @@ persistence:
   storageClass: ""
   accessMode: ReadWriteOnce
   size: 1Gi
-

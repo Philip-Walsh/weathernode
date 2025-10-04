@@ -1,16 +1,16 @@
 import request from 'supertest';
 import express from 'express';
-import apiRoutes from '../routes/api';
-import monitoringRoutes from '../routes/monitoring';
-import { MCPHandler } from '../mcp/handler';
+import apiRoutes from '../src/routes/api.js';
+import monitoringRoutes from '../src/routes/monitoring.js';
+import { MCPHandler } from '../src/mcp/handler.js';
 import {
     sanitizeInput,
     validateWeatherQuery,
     validateMCPRequest,
     createRateLimit,
     securityHeaders
-} from '../middleware/validation';
-import { requestLogger } from '../middleware/logging';
+} from '../src/middleware/validation.js';
+import { requestLogger } from '../src/middleware/logging.js';
 
 // Create test app with security middleware
 const app = express();

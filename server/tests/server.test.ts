@@ -15,7 +15,7 @@ app.post('/mcp', (req, res) => {
 
 app.get('/', (req, res) => {
     res.json({
-        service: 'weather-mcp-db',
+        service: 'weathernode',
         version: '1.0.0',
         endpoints: {
             rest: '/api',
@@ -70,7 +70,7 @@ describe('Server Integration Tests', () => {
 
             expect(response.status).toBe(200);
             expect(response.body).toEqual({
-                service: 'weather-mcp-db',
+                service: 'weathernode',
                 version: '1.0.0',
                 endpoints: {
                     rest: '/api',
@@ -91,7 +91,7 @@ describe('Server Integration Tests', () => {
             expect(response.body).toEqual({
                 status: 'healthy',
                 timestamp: expect.any(String),
-                service: 'weather-mcp-db',
+                service: 'weathernode',
                 version: '1.0.0',
                 uptime: expect.any(Number),
                 memory: expect.any(Object),
@@ -206,7 +206,7 @@ describe('Server Integration Tests', () => {
                     protocolVersion: '2024-11-05',
                     capabilities: { tools: {} },
                     serverInfo: {
-                        name: 'weather-server',
+                        name: 'weathernode-service',
                         version: '1.0.0'
                     }
                 }

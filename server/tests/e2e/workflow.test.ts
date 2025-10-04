@@ -1,7 +1,7 @@
 import request from 'supertest';
 import express from 'express';
-import apiRoutes from '../../routes/api';
-import { MCPHandler } from '../../mcp/handler';
+import apiRoutes from '../../src/routes/api.js';
+import { MCPHandler } from '../../src/mcp/handler.js';
 
 // Create test app without starting server
 const app = express();
@@ -15,7 +15,7 @@ app.post('/mcp', (req, res) => {
 
 app.get('/', (req, res) => {
     res.json({
-        service: 'weather-mcp-db',
+        service: 'weathernode',
         version: '1.0.0',
         endpoints: {
             rest: '/api',

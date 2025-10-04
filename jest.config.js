@@ -1,5 +1,5 @@
-module.exports = {
-    preset: 'ts-jest',
+export default {
+    preset: 'ts-jest/presets/default-esm',
     testEnvironment: 'node',
     roots: ['<rootDir>/server/tests'],
     testMatch: ['**/*.test.ts'],
@@ -10,5 +10,11 @@ module.exports = {
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov', 'html'],
-    setupFilesAfterEnv: ['<rootDir>/server/tests/setup.ts']
+    setupFilesAfterEnv: ['<rootDir>/server/tests/setup.ts'],
+    extensionsToTreatAsEsm: ['.ts'],
+    globals: {
+        'ts-jest': {
+            useESM: true
+        }
+    }
 };

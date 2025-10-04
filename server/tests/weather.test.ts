@@ -1,4 +1,4 @@
-import { WeatherService } from '../weather';
+import { WeatherService } from '../src/services/weather.js';
 import axios from 'axios';
 
 // Mock axios

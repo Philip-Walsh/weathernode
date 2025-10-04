@@ -1,5 +1,5 @@
 {
-  "name": "weather-mcp-db",
+  "name": "weathernode",
   "version": "1.0.0",
   "description": "Weather service with MCP and REST API endpoints",
   "main": "dist/server.js",
